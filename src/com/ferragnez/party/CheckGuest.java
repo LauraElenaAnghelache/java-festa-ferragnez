@@ -10,28 +10,38 @@ public class CheckGuest {
 		
 		String[] listaInvitati = {"Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax", "Francesco Totti", "Ilary Blasi", "Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"};
 		Scanner scan = new Scanner (System.in);
-		boolean invitato = false;
-	    String nome;
-
-	    
-	    System.out.println("Salve, Mi dica il suo nome: ");
-	     nome = scan.nextLine();
-	     for(int i = 0; i < listaInvitati.length; i++) {
+		 String nome, ripeti;
+	  do {
+		    boolean invitato = false;	    
+             System.out.println("Salve, Mi dica il suo nome: ");
+	        nome = scan.nextLine();
+	        for(int i = 0; i < listaInvitati.length; i++) {
 				
 				if(nome.equalsIgnoreCase(listaInvitati[i])) 
 					invitato = true;
-	     }	
+	         }	
 			    if(invitato == true)
 				System.out.println("Lei  è sulla lista, può entrare.");
 			    else
 				System.out.println("Lei non è sulla lista, non può entrare.");
-	 
-			
-			    scan.close();
-	}
+		do {
+			System.out.println("Ci sono altri invitati? ");
+			ripeti = scan.nextLine();
+			    if(!ripeti.equalsIgnoreCase("si") && !ripeti.equalsIgnoreCase("no"))
+			    System.out.println("Mi scusi non ho capito, puo' ripetere? ");
+		    }while(!ripeti.equalsIgnoreCase("si") && !ripeti.equalsIgnoreCase("no"));
+		
+	  }while(ripeti.equalsIgnoreCase("si"));
+	  System.out.println("Grazie, Arrivederci ");
+	  		
+		
+			scan.close();
 	
-}
-	    
+		}	
+	
+
+	}  
+
 		
 	       
 
